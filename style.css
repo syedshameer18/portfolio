@@ -1,0 +1,459 @@
+:root {
+  --bg-dark: #0b0b0d;
+  --card-dark: #15151a;
+  --text-light: #e6e6e6;
+  --accent: #6d28d9;
+  --accent-glow: #8b5cf6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at 20% 20%, #111 0%, #000 100%);
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+
+/* Mist animation */
+.mist-bg {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle, rgba(109,40,217,0.15) 0%, transparent 70%);
+  animation: floatMist 6s infinite ease-in-out;
+  z-index: -1;
+}
+@keyframes floatMist {
+  0%,100% { opacity: 0.3; transform: translateY(0); }
+  50% { opacity: 0.6; transform: translateY(-10px); }
+}
+
+/* Cursor glow */
+.cursor-glow {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139,92,246,0.4), transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
+/* Header */
+/* NAVBAR DESIGN */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background: linear-gradient(90deg,#0a0f24,#430468,#0a0f24);
+    border-bottom: 1px solid #3f6bff;
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li {
+    list-style: none;
+    
+}
+
+nav ul li a {
+    position: relative;
+    text-decoration: none;
+    color: #e5e5e5; /* default color */
+    font-size: 18px;
+    padding-bottom: 5px;
+    transition: 0.3s;
+}
+
+/* Hover Text Color (Sung Jinwoo Blue) */
+nav ul li a:hover {
+    color: #3f6bff;
+    text-shadow: 0 0 8px #3f6bff;
+}
+
+/* Underline Animation */
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: #3f6bff;  /* Same Sung Jinwoo blue */
+    transition: 0.3s ease-in-out;
+}
+
+/* Hover underline */
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Active link underline (optional) */
+nav ul li a.active::after {
+    width: 100%;
+}
+
+/* LOGO COLOR (same blue as your screenshot) */
+.logo {
+    color: #3f6bff;
+    font-weight: bold;
+    font-size: 26px;
+    top: 0.6cm;
+}
+/* Sections */
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8rem 2rem;
+  background-color: var(--card-dark);
+  margin: 2rem auto;
+  max-width: 900px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(109, 40, 217, 0.3);
+  transition: 0.3s;
+}
+section:hover { box-shadow: 0 0 25px rgba(139, 92, 246, 0.6); }
+
+h1, h2, h3 {
+  font-family: "Cinzel", serif;
+  margin-bottom: 1rem;
+}
+h1 span { color: var(--accent); }
+
+/* Hero */
+.hero {
+  text-align: center;
+}
+.photo-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(109, 40, 217, 0.6);
+  box-shadow:
+      0 0 25px rgba(109, 40, 217, 0.8),
+      0 0 50px rgba(139, 92, 246, 0.5),
+      0 0 80px rgba(139, 92, 246, 0.3);
+  animation: auraPulse 3s infinite ease-in-out;
+  position: relative;
+  z-index: 2;
+}
+.shadow-symbol {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  width: 210px;
+  height: 210px;
+  background: url("symbol.png") no-repeat center/contain;
+  opacity: 0.22;
+  filter: drop-shadow(0 0 25px rgba(139, 92, 246, 0.8));
+  animation: symbolFloat 5s infinite ease-in-out;
+  z-index: 1;
+}
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Buttons */
+.btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.btn:hover {
+  background: var(--accent-glow);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}
+.btn-outline:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+
+/* Skills */
+.skills-section {
+  padding: 60px 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.skill-card h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color:#9f7fc4;
+  
+}
+
+.skill-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-card ul li {
+  margin: 8px 0;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+/* Projects */
+.project-card {
+  background: #1c1c22;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(139,92,246,0.3);
+  max-width: 600px;
+  text-align: center;
+}
+.project-btn{
+  margin-top: 15px;
+  display: inline-block;
+}
+/* Achievements */
+/* Achievements Section */
+.achievements {
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.3rem;
+    color: white;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+/* Achievement List Style */
+.achievement-list {
+    width: 100%;
+    max-width: 650px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Each Item Card */
+.achievement-item {
+    padding: 18px 25px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+/* Hover Effect */
+.achievement-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 25px rgba(140, 120, 255, 0.5);
+}
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #0b0b0d;
+  color: #888;
+}
+/* Contact Section Titles */
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    color: white;
+    margin-bottom: 10px;
+    margin-top: 60px;
+}
+
+.contact-sub {
+    text-align: center;
+    color: #b9b9b9;
+    margin-bottom: 30px;
+}
+
+/* Contact Alignment */
+.contact-wrapper {
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Contact Input Cards - Like Achievements */
+.contact-card {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.07);
+    color: white;
+    font-size: 16px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.35);
+}
+
+/* Send Message Button (Centered) */
+.send-btn {
+  background: var(--accent); /* Same color as project button */
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto 0 auto; /* Center the button */
+  box-shadow: 0 0 10px rgba(139,92,246,0.3);
+  transition: 0.3s ease-in-out;
+}
+
+.send-btn:hover {
+  background: var(--accent-glow); /* Same hover effect */
+  box-shadow: 0 0 20px rgba(139,92,246,0.6);
+}
+
+
+/* LinkedIn Small Icon */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Dice box */
+.icon-box {
+    width: 50px;
+    height: 50px;
+    background: #1c1c22;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(139,92,246,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.icon-box i {
+    font-size: 24px;
+    color: rgba(139,92,246,1);
+}
+
+/* Hover */
+.icon-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 18px rgba(139,92,246,0.9);
+}
+/* Actions */
+.actions {
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+
+/* Status message */
+#formStatus {
+  color: #cfcfe3;
+  font-size: 0.95rem;
+  min-width: 220px;
+  text-align: left;
+}
+
+/* Smaller screens: stack fields vertically */
+@media (max-width: 720px) {
+  .contact-form .row { flex-direction: column; }
+  .actions { flex-direction: column; }
+  #formStatus { text-align: center; margin-top: 6px; }
+}
+section { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+section.visible { opacity: 1; transform: translateY(0); }
+
+/* Small app-style icon under Send Message */
+.contact-icons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-icon {
+  width: 55px;
+  height: 55px;
+  background: rgba(109, 40, 217, 0.2);
+  border: 2px solid rgba(139, 92, 246, 0.4);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  transition: 0.3s ease;
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.3);
+}
+
+.contact-icon img {
+  width: 28px;
+  height: 28px;
+}
+
+/* Hover glow */
+.contact-icon:hover {
+  transform: scale(1.12);
+  background: rgba(139, 92, 246, 0.35);
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.6);
+}
