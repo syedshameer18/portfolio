@@ -103,7 +103,9 @@ nav ul li a:hover::after {
 nav ul li a.active::after {
     width: 100%;
 }
-
+section{
+  padding-top:80px;
+}
 /* LOGO COLOR (same blue as your screenshot) */
 .logo {
     color: #3f6bff;
@@ -457,3 +459,4 @@ section.visible { opacity: 1; transform: translateY(0); }
   background: rgba(139, 92, 246, 0.35);
   box-shadow: 0 0 25px rgba(139, 92, 246, 0.6);
 }
+
