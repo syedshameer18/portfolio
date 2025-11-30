@@ -23,4 +23,12 @@ const cursor = document.querySelector(".cursor-glow");
 document.addEventListener("mousemove", e => {
   cursor.style.left = e.pageX + "px";
   cursor.style.top = e.pageY + "px";
+
+});
+// Mobile navbar toggle
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector("nav ul");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
 });
