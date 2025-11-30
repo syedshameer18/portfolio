@@ -4,7 +4,9 @@ const nodemailer = require("nodemailer");
 const cors = require("cors");
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin:"*"
+}));
 app.use(express.json());
 
 // Serve static files from /public
@@ -54,3 +56,4 @@ app.post("/send-message", async (req, res) => {
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
